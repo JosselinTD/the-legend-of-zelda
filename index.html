@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <!-- aframe itself -->
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+    <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-area-light-component/dist/aframe-area-light-component.min.js"></script> 
+    <script src="emissive-light.js"></script>
+    <script type="text/javascript" src="fire.js"></script>
+    <script src="controls.js"></script>
+    <script src="spinning.js"></script>
+    <script src="game-events.js"></script>
+  </head>
+  <body>
+  <a-scene>
+    <a-assets>
+      <a-asset-item id="tree1" src="models/tree1/scene.gltf"></a-asset-item>
+      <a-asset-item id="tree2" src="models/tree2/scene.gltf"></a-asset-item>
+      <a-asset-item id="door1" src="models/door1/mountain-door.gltf"></a-asset-item>
+      <a-asset-item id="torch-statue-1" src="models/torch-statue-1/torch-statue.gltf"></a-asset-item>
+      <a-asset-item id="fire1" src="models/fire1/fire1.gltf"></a-asset-item>
+      <a-asset-item id="fire2" src="models/fire2/fire2.gltf"></a-asset-item>
+      <a-asset-item id="mountain1" src="models/mountain1/scene.gltf"></a-asset-item>
+      <a-asset-item id="mountain2" src="models/mountain2/scene.gltf"></a-asset-item>
+      <a-asset-item id="mountain3" src="models/mountain3/scene.gltf"></a-asset-item>
+      <a-asset-item id="mountain4" src="models/mountain4/scene.gltf"></a-asset-item>
+      <a-asset-item id="mountain5" src="models/mountain5/holled-mountains.gltf"></a-asset-item>
+      <a-asset-item id="wiseMan" src="models/peasant-male/peasant-male.gltf"></a-asset-item>
+      <a-asset-item id="basicSword" src="models/basic-sword/scene.gltf"></a-asset-item>
+    </a-assets>
+
+    
+
+    <a-entity joycon-controls
+      position="20 1.5 -57"
+      rotation="0 0 0"
+      game-events>
+      <a-entity camera look-controls>
+      </a-entity>
+      <a-cursor></a-cursor>
+    </a-entity>
+
+    <script type="text/javascript" src="mountains.js"></script>
+    <script type="text/javascript" src="doors.js"></script>
+    <script type="text/javascript" src="torchs.js"></script>
+    <script type="text/javascript" src="npcs.js"></script>
+
+    <script type="text/javascript" src="player.js"></script>
+
+    <a-entity environment="
+      preset: forest;
+      dressing: none;
+      skyType: atmosphere;
+      groundTexture: none;
+      shadow: true;
+      ground: flat;
+      fog: 0"></a-entity>
+</a-entity>
+  </a-scene>
+  </body>
+</html>

@@ -1,0 +1,263 @@
+{
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 468,
+            "max": [
+                1.0275907516479492,
+                1.2941206693649292,
+                10.933232307434082
+            ],
+            "min": [
+                -1.4342151880264282,
+                -1.3673629760742188,
+                7.440775394439697
+            ],
+            "name": "accessor_buffer_Cube.047_POSITION_0",
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 468,
+            "max": [
+                0.998634397983551,
+                0.993376612663269,
+                0.9871170520782471
+            ],
+            "min": [
+                -0.9715585112571716,
+                -0.9947211742401123,
+                -0.9871600270271301
+            ],
+            "name": "accessor_buffer_Cube.047_NORMAL_0",
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 468,
+            "max": [
+                0.6588115096092224,
+                0.5945684909820557
+            ],
+            "min": [
+                0.6061823964118958,
+                0.4052475690841675
+            ],
+            "name": "accessor_buffer_Cube.047_TEXCOORD_0_0",
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 468,
+            "max": [
+                467
+            ],
+            "min": [
+                0
+            ],
+            "name": "accessor_buffer_Cube.047_0",
+            "type": "SCALAR"
+        }
+    ],
+    "asset": {
+        "version": "2.0"
+    },
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteLength": 5616,
+            "byteOffset": 0,
+            "byteStride": 12,
+            "name": "bufferView_buffer_Cube.047_POSITION_0",
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 5616,
+            "byteOffset": 5616,
+            "byteStride": 12,
+            "name": "bufferView_buffer_Cube.047_NORMAL_0",
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 3744,
+            "byteOffset": 11232,
+            "byteStride": 8,
+            "name": "bufferView_buffer_Cube.047_TEXCOORD_0_0",
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 936,
+            "byteOffset": 14976,
+            "name": "bufferView_buffer_Cube.047_0",
+            "target": 34963
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 15912,
+            "name": "buffer_fire1",
+            "uri": "buffer_fire1.bin"
+        }
+    ],
+    "images": [
+        {
+            "name": "ColorAtlas.png",
+            "uri": "ColorAtlas.png.png"
+        },
+        {
+            "name": "ColorAtlasEmisor.png.001",
+            "uri": "ColorAtlasEmisor.png.001.png"
+        }
+    ],
+    "materials": [
+        {
+            "emissiveFactor": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "emissiveTexture": {
+                "index": 0,
+                "texCoord": 0
+            },
+            "name": "Material",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.64000004529953,
+                    0.64000004529953,
+                    0.64000004529953,
+                    1.0
+                ],
+                "baseColorTexture": {
+                    "index": 1,
+                    "texCoord": 0
+                },
+                "metallicFactor": 0.0,
+                "roughnessFactor": 1.0
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "name": "Cube.047",
+            "primitives": [
+                {
+                    "attributes": {
+                        "NORMAL": 1,
+                        "POSITION": 0,
+                        "TEXCOORD_0": 2
+                    },
+                    "indices": 3,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "mesh": 0,
+            "name": "Fire1",
+            "rotation": [
+                0.0,
+                0.0,
+                0.7071068286895752,
+                0.7071067690849304
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ]
+        },
+        {
+            "children": [
+                0
+            ],
+            "matrix": [
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "name": "Scene_root"
+        }
+    ],
+    "samplers": [
+        {
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "name": "Emisor",
+            "wrapS": 10497,
+            "wrapT": 10497
+        },
+        {
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "name": "Diffuse",
+            "wrapS": 10497,
+            "wrapT": 10497
+        }
+    ],
+    "scene": 0,
+    "scenes": [
+        {
+            "extras": {
+                "background_color": [
+                    0.05087608844041824,
+                    0.05087608844041824,
+                    0.05087608844041824
+                ],
+                "character_name": 3,
+                "frames_per_second": 24,
+                "obj1": "Roundcube",
+                "use_cycles": 0,
+                "use_lamps": 0
+            },
+            "name": "Scene",
+            "nodes": [
+                1
+            ]
+        }
+    ],
+    "textures": [
+        {
+            "name": "Emisor",
+            "sampler": 0,
+            "source": 1
+        },
+        {
+            "name": "Diffuse",
+            "sampler": 1,
+            "source": 0
+        }
+    ]
+}

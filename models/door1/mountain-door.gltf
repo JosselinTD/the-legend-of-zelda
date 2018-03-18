@@ -1,0 +1,264 @@
+{
+    "accessors": [
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 794,
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "name": "accessor_buffer_Bridge.000_NORMAL_0",
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 794,
+            "max": [
+                8.739884376525879,
+                5.862879276275635,
+                13.170567512512207
+            ],
+            "min": [
+                -8.739884376525879,
+                -5.862879276275635,
+                -10.86610221862793
+            ],
+            "name": "accessor_buffer_Bridge.000_POSITION_0",
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 1194,
+            "max": [
+                793
+            ],
+            "min": [
+                0
+            ],
+            "name": "accessor_buffer_Bridge.000_0",
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 794,
+            "max": [
+                0.06433084607124329,
+                0.8730815947055817
+            ],
+            "min": [
+                0.026312947273254395,
+                0.7473826706409454
+            ],
+            "name": "accessor_buffer_Bridge.000_TEXCOORD_0_0",
+            "type": "VEC2"
+        }
+    ],
+    "asset": {
+        "version": "2.0"
+    },
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteLength": 9528,
+            "byteOffset": 0,
+            "byteStride": 12,
+            "name": "bufferView_buffer_Bridge.000_POSITION_0",
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 9528,
+            "byteOffset": 9528,
+            "byteStride": 12,
+            "name": "bufferView_buffer_Bridge.000_NORMAL_0",
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 6352,
+            "byteOffset": 19056,
+            "byteStride": 8,
+            "name": "bufferView_buffer_Bridge.000_TEXCOORD_0_0",
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 2388,
+            "byteOffset": 25408,
+            "name": "bufferView_buffer_Bridge.000_0",
+            "target": 34963
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 27796,
+            "name": "buffer_mountain-door",
+            "uri": "buffer_mountain-door.bin"
+        }
+    ],
+    "images": [
+        {
+            "name": "ColorAtlas.png",
+            "uri": "ColorAtlas.png.png"
+        },
+        {
+            "name": "ColorAtlasEmisor.png.001",
+            "uri": "ColorAtlasEmisor.png.001.png"
+        }
+    ],
+    "materials": [
+        {
+            "emissiveFactor": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "emissiveTexture": {
+                "index": 0,
+                "texCoord": 0
+            },
+            "name": "Material",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.64000004529953,
+                    0.64000004529953,
+                    0.64000004529953,
+                    1.0
+                ],
+                "baseColorTexture": {
+                    "index": 1,
+                    "texCoord": 0
+                },
+                "metallicFactor": 0.0,
+                "roughnessFactor": 1.0
+            },
+            "doubleSided": true
+        }
+    ],
+    "meshes": [
+        {
+            "name": "Bridge.000",
+            "primitives": [
+                {
+                    "attributes": {
+                        "NORMAL": 0,
+                        "POSITION": 1,
+                        "TEXCOORD_0": 3
+                    },
+                    "indices": 2,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "mesh": 0,
+            "name": "BridgePart",
+            "rotation": [
+                0.0,
+                0.0,
+                0.7071068286895752,
+                0.7071067690849304
+            ],
+            "scale": [
+                0.9999654293060303,
+                0.9999654293060303,
+                0.9999654293060303
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ]
+        },
+        {
+            "children": [
+                0
+            ],
+            "matrix": [
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "name": "Scene_root"
+        }
+    ],
+    "samplers": [
+        {
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "name": "Emisor",
+            "wrapS": 10497,
+            "wrapT": 10497
+        },
+        {
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "name": "Diffuse",
+            "wrapS": 10497,
+            "wrapT": 10497
+        }
+    ],
+    "scene": 0,
+    "scenes": [
+        {
+            "extras": {
+                "background_color": [
+                    0.05087608844041824,
+                    0.05087608844041824,
+                    0.05087608844041824
+                ],
+                "character_name": 3,
+                "frames_per_second": 24,
+                "obj1": "Roundcube",
+                "use_cycles": 0,
+                "use_lamps": 0
+            },
+            "name": "Scene",
+            "nodes": [
+                1
+            ]
+        }
+    ],
+    "textures": [
+        {
+            "name": "Emisor",
+            "sampler": 0,
+            "source": 1
+        },
+        {
+            "name": "Diffuse",
+            "sampler": 1,
+            "source": 0
+        }
+    ]
+}

@@ -1,0 +1,263 @@
+{
+    "accessors": [
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 285,
+            "max": [
+                282
+            ],
+            "min": [
+                0
+            ],
+            "name": "accessor_buffer_Icosphere_0",
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 283,
+            "max": [
+                0.6563080549240112,
+                0.5329635739326477
+            ],
+            "min": [
+                0.6141706109046936,
+                0.3603946566581726
+            ],
+            "name": "accessor_buffer_Icosphere_TEXCOORD_0_0",
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 283,
+            "max": [
+                0.9853032827377319,
+                0.9598428010940552,
+                0.943820595741272
+            ],
+            "min": [
+                -0.998614490032196,
+                -0.9916223287582397,
+                -0.992264449596405
+            ],
+            "name": "accessor_buffer_Icosphere_NORMAL_0",
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 283,
+            "max": [
+                1.590390920639038,
+                1.4734768867492676,
+                5.8990044593811035
+            ],
+            "min": [
+                -1.221678614616394,
+                -1.364317536354065,
+                -0.036957740783691406
+            ],
+            "name": "accessor_buffer_Icosphere_POSITION_0",
+            "type": "VEC3"
+        }
+    ],
+    "asset": {
+        "version": "2.0"
+    },
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteLength": 3396,
+            "byteOffset": 0,
+            "byteStride": 12,
+            "name": "bufferView_buffer_Icosphere_POSITION_0",
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 3396,
+            "byteOffset": 3396,
+            "byteStride": 12,
+            "name": "bufferView_buffer_Icosphere_NORMAL_0",
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 2264,
+            "byteOffset": 6792,
+            "byteStride": 8,
+            "name": "bufferView_buffer_Icosphere_TEXCOORD_0_0",
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 570,
+            "byteOffset": 9056,
+            "name": "bufferView_buffer_Icosphere_0",
+            "target": 34963
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 9626,
+            "name": "buffer_fire2",
+            "uri": "buffer_fire2.bin"
+        }
+    ],
+    "images": [
+        {
+            "name": "ColorAtlas.png",
+            "uri": "ColorAtlas.png.png"
+        },
+        {
+            "name": "ColorAtlasEmisor.png.001",
+            "uri": "ColorAtlasEmisor.png.001.png"
+        }
+    ],
+    "materials": [
+        {
+            "emissiveFactor": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "emissiveTexture": {
+                "index": 0,
+                "texCoord": 0
+            },
+            "name": "Material",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.64000004529953,
+                    0.64000004529953,
+                    0.64000004529953,
+                    1.0
+                ],
+                "baseColorTexture": {
+                    "index": 1,
+                    "texCoord": 0
+                },
+                "metallicFactor": 0.0,
+                "roughnessFactor": 1.0
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "name": "Icosphere",
+            "primitives": [
+                {
+                    "attributes": {
+                        "NORMAL": 2,
+                        "POSITION": 3,
+                        "TEXCOORD_0": 1
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "mesh": 0,
+            "name": "Fire2",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ]
+        },
+        {
+            "children": [
+                0
+            ],
+            "matrix": [
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "name": "Scene_root"
+        }
+    ],
+    "samplers": [
+        {
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "name": "Emisor",
+            "wrapS": 10497,
+            "wrapT": 10497
+        },
+        {
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "name": "Diffuse",
+            "wrapS": 10497,
+            "wrapT": 10497
+        }
+    ],
+    "scene": 0,
+    "scenes": [
+        {
+            "extras": {
+                "background_color": [
+                    0.05087608844041824,
+                    0.05087608844041824,
+                    0.05087608844041824
+                ],
+                "character_name": 3,
+                "frames_per_second": 24,
+                "obj1": "Roundcube",
+                "use_cycles": 0,
+                "use_lamps": 0
+            },
+            "name": "Scene",
+            "nodes": [
+                1
+            ]
+        }
+    ],
+    "textures": [
+        {
+            "name": "Emisor",
+            "sampler": 0,
+            "source": 1
+        },
+        {
+            "name": "Diffuse",
+            "sampler": 1,
+            "source": 0
+        }
+    ]
+}

@@ -1,0 +1,4 @@
+{
+	animations: ['Walking', 'Breathing', 'Leaning'],
+	speedCoeff: 1000
+}

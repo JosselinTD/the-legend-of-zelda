@@ -1,0 +1,77 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<canvas id="canvas" width="16" height="16"></canvas>
+		<div id="coucou">
+		<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAHklEQVQ4T2P8c2PFfwYKAOOoAQyjYcAwGgYMwyIMANLpN8HhDjp8AAAAAElFTkSuQmCC"/>
+		<input type="text"/>
+		<button onclick="fillIt()">Click</button>
+		<script type="text/javascript" src="correspondanceMap.js"></script>
+		<script type="text/javascript">
+			var canvas = document.getElementById('canvas');
+			var ctx = canvas.getContext('2d');
+			var overworld = new Image();
+			var width = 256;
+			var height = 88;
+			var size = 16;
+			var result = [];
+			var differentsTile = [];
+			var finalMap = [];
+			overworld.onload = function() {
+				for (var i = 0; i < height; i++) {
+					var currentLine = [];
+					for (var j = 0; j < width; j++) {
+						ctx.drawImage(overworld, -j * size, -i * 16);
+						// currentLine.push(canvas.toDataURL());
+						try {
+							currentLine.push(correspondanceMap.find(c => c.src === canvas.toDataURL()).id);
+						} catch(e) {
+							console.log()
+						}
+
+					}
+					result.push(currentLine);
+				}
+				console.log(result);
+				/*result.forEach(function(imgLine, i) {
+					var currentLine = [];
+					imgLine.forEach(function(img, j) {
+						var tile = differentsTile.find(t => t.src === img);
+						if (!tile) {
+							tile = {
+								src: img,
+								count: 0,
+								coords: [j, i]
+							};
+							differentsTile.push(tile);
+						}
+						tile.count++;
+					});
+				});
+				differentsTile.sort((a, b) => a.count - b.count);*/
+				//draw();
+				//console.log(differentsTile);
+			}
+			overworld.src = 'images/overworld.png';
+			console.log(correspondanceMap);
+			var current = 0;
+			function fillIt() {
+				correspondanceMap.push({
+					src: differentsTile[current].src,
+					id: document.querySelector('input').value
+				});
+				current++;
+				draw();
+				document.querySelector('#res').innerHTML = JSON.stringify(correspondanceMap);
+				console.log(JSON.stringify(correspondanceMap));
+			}
+
+			function draw() {
+				document.querySelector('img').setAttribute('src', differentsTile[current].src);
+			}
+		</script>
+		</div>
+		<div id="res"></div>
+	</body>
+</html>

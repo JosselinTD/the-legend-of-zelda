@@ -6,11 +6,17 @@
     <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
     <script src="https://unpkg.com/aframe-area-light-component/dist/aframe-area-light-component.min.js"></script> 
+    <script src="colors.js"></script> 
+    <script src="three/CustomMeshFlat.js"></script> 
+    <script src="three/GeometryHelpers.js"></script> 
     <script src="emissive-light.js"></script>
     <script type="text/javascript" src="fire.js"></script>
     <script src="controls.js"></script>
     <script src="spinning.js"></script>
     <script src="game-events.js"></script>
+    <script src="ocean.js"></script>
+    <script type="text/javascript" src="mountain.js"></script>
+    <script type="text/javascript" src="tree.js"></script>
   </head>
   <body>
   <a-scene>
@@ -30,31 +36,35 @@
       <a-asset-item id="basicSword" src="models/basic-sword/scene.gltf"></a-asset-item>
     </a-assets>
 
-    
-
     <a-entity joycon-controls
       position="0 1.5 0"
       rotation="0 0 0"
       game-events>
-      <a-entity camera look-controls>
+      <a-entity camera look-controls keyboard-controls>
       </a-entity>
       <a-cursor></a-cursor>
     </a-entity>
 
-    <script type="text/javascript" src="mountains.js"></script>
     <script type="text/javascript" src="doors.js"></script>
     <script type="text/javascript" src="torchs.js"></script>
     <script type="text/javascript" src="npcs.js"></script>
 
     <script type="text/javascript" src="player.js"></script>
 
+    <a-tree position="0 0 0" scale="0.1 0.1 0.1"></a-tree>
+    <a-tree position="-3 0 0" scale="0.1 0.1 0.1"></a-tree>
+    <a-tree position="3 0 0" scale="0.1 0.1 0.1"></a-tree>
+    <a-tree position="0 0 -3" scale="0.1 0.1 0.1"></a-tree>
+    <a-tree position="0 0 3" scale="0.1 0.1 0.1"></a-tree>
+    <a-tree position="-3 0 3" scale="0.1 0.1 0.1"></a-tree>
+    <a-tree position="3 0 -3" scale="0.1 0.1 0.1"></a-tree>
     <a-entity environment="
       preset: forest;
       dressing: none;
       skyType: atmosphere;
       groundTexture: none;
       shadow: true;
-      ground: flat;
+      ground: none;
       fog: 0"></a-entity>
 </a-entity>
   </a-scene>

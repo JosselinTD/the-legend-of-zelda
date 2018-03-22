@@ -31,11 +31,11 @@ AFRAME.registerComponent('mountain', {
 		  vertices[i].z = terrainData[i] * 10;
     }
     // Create mesh.
-    var mat = new THREE.MeshLambertMaterial({ 
-      color: Colors.grey_l,
-      side: THREE.DoubleSide,
-      reflectivity: 0,
-      shading: THREE.FlatShading
+    var mat = new THREE.MeshPhongMaterial({
+      color: data.color,
+      transparent: data.opacity < 1,
+      opacity: data.opacity,
+      flatShading: true,
     });
     var mesh = new THREE.Mesh(geometry, mat);
     this.el.setObject3D('mesh', mesh);
@@ -49,7 +49,7 @@ function generateHeight(width, height) {
 
   for (var x = 0; x <= width; x++) {
     for (var y = 0; y <= height; y++) {
-      data.push(noise.simplex2(x, y));
+      data.push(noise.simplex2(x, y) + 1);
     }
   }
 
@@ -61,7 +61,7 @@ function generateHeight(width, height) {
       }
     }
   }
-  console.log(data.filter(a => a === -1).length);
+
   return data;
 }
 
@@ -70,7 +70,10 @@ function generateHeight(width, height) {
  */
 AFRAME.registerPrimitive('a-mountain', {
   defaultComponents: {
-    mountain: {}
+    mountain: {},
+    rotation: {x: -90, y: 0, z: 0},
+    scale: {x: 5, y: 5, z: 0.6},
+    position: {x: (255 * 5 / 2) + 2.5, y: 2, z: (87 * 5 / 2) + 2.5}
   },
 
   mappings: {

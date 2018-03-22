@@ -13,14 +13,17 @@
     <script src="colors.js"></script> 
     <script src="three/CustomMeshFlat.js"></script> 
     <script src="three/GeometryHelpers.js"></script> 
+    <script src="three/Water.js"></script> 
     <script src="emissive-light.js"></script>
     <script type="text/javascript" src="fire.js"></script>
     <script src="controls.js"></script>
     <script src="spinning.js"></script>
     <script src="game-events.js"></script>
     <script src="ocean.js"></script>
+    <script src="water-material.js"></script>
     <script type="text/javascript" src="mountain.js"></script>
     <script type="text/javascript" src="tree.js"></script>
+    <script type="text/javascript" src="ground.js"></script>
   </head>
   <body>
   <a-scene antialias="true">
@@ -79,8 +82,8 @@
     <a-entity camera
       look-controls
       wasd-controls
-      position="640 1.5 250"
-      rotation="0 180 0"
+      position="670 1.7 251"
+      rotation="0 0 0"
       save-position></a-entity>
 
     <script type="text/javascript" src="doors.js"></script>
@@ -90,8 +93,10 @@
     <script type="text/javascript" src="player.js"></script>
 
     <a-forest distance="40"></a-forest>
-    <a-tiled-ocean distance="40" position="0 -1 0"></a-tiled-ocean>
-    <!--<a-mountain rotation="-90 0 0" scale="3 3 0.5" position="0 5 0" shadow="cast: true; receive: true"></a-mountain>-->
+    <!--<a-tiled-ocean distance="40" position="0 0 0"></a-tiled-ocean>-->
+    <a-ocean-3></a-ocean-3>
+    <a-mountain></a-mountain>
+    <a-ground></a-ground>
 </a-entity>
   </a-scene>
   </body>

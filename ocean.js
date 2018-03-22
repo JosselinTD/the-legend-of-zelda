@@ -5,6 +5,112 @@
  * http://tympanus.net/codrops/2016/04/26/the-aviator-animating-basic-3d-scene-threejs/
  */
 
+
+AFRAME.registerPrimitive('a-ocean-3', {
+  defaultComponents: {
+    'ocean-3': {},
+    rotation: {x: -90, y: 0, z:0},
+    scale: {x: 5, y: -5, z: 1},
+    position: {x: 2.5, y: -0.2, z: 2.5}
+  },
+  mappings: {
+    width: 'ocean-tile.width',
+    depth: 'ocean-tile.depth',
+    density: 'ocean-tile.density',
+    amplitude: 'ocean-tile.amplitude',
+    'amplitude-variance': 'ocean-tile.amplitude-variance',
+    speed: 'ocean-tile.speed',
+    'speed-variance': 'ocean-tile.speed-variance',
+    color: 'ocean-tile.color',
+    opacity: 'ocean-tile.opacity'
+  }
+});
+var first = true;
+AFRAME.registerComponent('ocean-3', {
+  schema: {
+    // Dimensions of the ocean area.
+    width: {default: 255, min: 0},
+    depth: {default: 87, min: 0},
+
+    // Density of waves.
+    density: {default: 10},
+
+    // Wave amplitude and variance.
+    amplitude: {default: 0.05},
+    'amplitude-variance': {default: 0.3},
+
+    // Wave speed and variance.
+    speed: {default: 0.5},
+    'speed-variance': {default: 2},
+
+    // Material.
+    color: {default: '#7AD2F7', type: 'color'},
+    opacity: {default: 0.8}
+  },
+
+  /**
+   * Use play() instead of init(), because component mappings – unavailable as dependencies – are
+   * not guaranteed to have parsed when this component is initialized.
+   */
+  play: function () {
+    const el = this.el,
+        data = this.data;
+    let material = el.components.material;
+
+    const geometry = new THREE.PlaneGeometry(data.width, data.depth, data.width, data.depth);
+    
+    geometry.scale(1, -1, 1);
+    geometry.translate(data.width / 2, data.depth / 2, 0);
+
+    this.vertexToUpdate = geometry.vertices.filter(function(v, index) {
+      v.index = index;
+      var nice = map[v.y][v.x] === 'water';
+      /*if (!nice) {
+        v.z = -0.5
+      }*/
+      return nice;
+    });
+    this.waves = [];
+    for (let v, i = 0, l = geometry.vertices.length; i < l; i++) {
+      v = geometry.vertices[i];
+      this.waves.push({
+        z: v.z,
+        ang: Math.random() * Math.PI * 2,
+        amp: data.amplitude + Math.random() * data['amplitude-variance'],
+        speed: (data.speed + Math.random() * data['speed-variance']) / 1000 // radians / frame
+      });
+    }
+    if (!material) {
+      material = {};
+      material.material = new THREE.MeshPhongMaterial({
+        color: data.color,
+        transparent: data.opacity < 1,
+        opacity: data.opacity,
+        flatShading: true,
+        side: THREE.DoubleSide
+      });
+    }
+
+    this.mesh = new THREE.Mesh(geometry, material.material);
+    el.setObject3D('mesh', this.mesh);
+  },
+
+  remove: function () {
+    this.el.removeObject3D('mesh');
+  },
+
+  tick: function (t, dt) {
+    if (!dt) return;
+    for (let v, vprops, i = 0; (v = this.vertexToUpdate[i]); i++){
+      vprops = this.waves[v.index];
+      v.z = vprops.z + Math.sin(vprops.ang) * vprops.amp;
+      vprops.ang += vprops.speed * dt;
+    }
+    this.mesh.geometry.verticesNeedUpdate = true;
+  }
+});
+
+
 AFRAME.registerPrimitive('a-tiled-ocean', {
   defaultComponents: {
     'tiled-ocean': {}

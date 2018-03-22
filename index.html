@@ -7,6 +7,7 @@
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
     <script src="https://unpkg.com/aframe-area-light-component/dist/aframe-area-light-component.min.js"></script> 
     <script src="correspondanceMap.js"></script> 
+    <script src="global-user-position.js"></script> 
     <script src="perlin.js"></script> 
     <script src="colors.js"></script> 
     <script src="three/CustomMeshFlat.js"></script> 
@@ -65,14 +66,21 @@
         position="-150 350 350" 
         shadow="cast: true; receive: true"></a-entity>
 
-    <a-entity joycon-controls
-      position="0 1.5 0"
+    <!--<a-entity joycon-controls
+      position="640 1.5 250"
       rotation="0 0 0"
-      game-events>
+      game-events
+      save-position>
       <a-entity camera look-controls keyboard-controls>
       </a-entity>
       <a-cursor></a-cursor>
-    </a-entity>
+    </a-entity>-->
+    <a-entity camera
+      look-controls
+      wasd-controls
+      position="640 1.5 250"
+      rotation="0 180 0"
+      save-position></a-entity>
 
     <script type="text/javascript" src="doors.js"></script>
     <script type="text/javascript" src="torchs.js"></script>
@@ -80,7 +88,8 @@
 
     <script type="text/javascript" src="player.js"></script>
 
-    <a-mountain rotation="-90 0 0" scale="3 3 0.5" position="0 5 0" shadow="cast: true; receive: true"></a-mountain>
+    <a-forest distance="40"></a-forest>
+    <!--<a-mountain rotation="-90 0 0" scale="3 3 0.5" position="0 5 0" shadow="cast: true; receive: true"></a-mountain>-->
 
     <!--<a-entity environment="
       preset: forest;

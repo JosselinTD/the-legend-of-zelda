@@ -6,6 +6,7 @@
     <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
     <script src="https://unpkg.com/aframe-area-light-component/dist/aframe-area-light-component.min.js"></script> 
+    <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
     <script src="correspondanceMap.js"></script> 
     <script src="global-user-position.js"></script> 
     <script src="perlin.js"></script> 
@@ -39,7 +40,7 @@
       <a-asset-item id="basicSword" src="models/basic-sword/scene.gltf"></a-asset-item>
     </a-assets>
 
-    <a-sky color="#6EBAA7"></a-sky>
+    <a-gradient-sky material="shader: gradient; topColor: 100 100 255; bottomColor: 255 255 255;"></a-gradient-sky>
 
     <a-entity light="type: directional;
       color: 0xffffff;
@@ -89,16 +90,8 @@
     <script type="text/javascript" src="player.js"></script>
 
     <a-forest distance="40"></a-forest>
+    <a-tiled-ocean distance="40" position="0 -1 0"></a-tiled-ocean>
     <!--<a-mountain rotation="-90 0 0" scale="3 3 0.5" position="0 5 0" shadow="cast: true; receive: true"></a-mountain>-->
-
-    <!--<a-entity environment="
-      preset: forest;
-      dressing: none;
-      skyType: atmosphere;
-      groundTexture: none;
-      shadow: true;
-      ground: none;
-      fog: 0"></a-entity>-->
 </a-entity>
   </a-scene>
   </body>

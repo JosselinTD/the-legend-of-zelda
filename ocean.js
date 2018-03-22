@@ -5,20 +5,78 @@
  * http://tympanus.net/codrops/2016/04/26/the-aviator-animating-basic-3d-scene-threejs/
  */
 
-var k = false;
+AFRAME.registerPrimitive('a-tiled-ocean', {
+  defaultComponents: {
+    'tiled-ocean': {}
+  },
+  mappings: {
+    distance: 'tiled-ocean.distance'
+  }
+});
+
+AFRAME.registerComponent('tiled-ocean', {
+  schema: {
+    distance: {defaults: 50}
+  },
+  init: function() {
+    var self = this;
+    self.tiles = [];
+
+    var tilesCount = 0;
+    map.forEach(function(line, i) {
+      line.forEach(function(tile, j) {
+        if (tile === 'water') {
+          self.tiles.push({
+            x: j * 5,
+            y: 0,
+            z: i * 5,
+            id: tilesCount
+          });
+          tilesCount++;
+        }
+      });
+    });
+  },
+  tick: function() {
+    var self = this;
+    var neededPositions = [];
+    this.tiles.forEach(function(tile) {
+      if (Math2.distance(tile, userPosition) <= self.data.distance) {
+        neededPositions.push(tile);
+      }
+    });
+    var currentTiles = Array.prototype.slice.call(this.el.childNodes, 0);
+    neededPositions = neededPositions.filter(function(p) {
+      return !currentTiles.find(c => c.getAttribute('tile-id') == p.id);
+    });
+    currentTiles.filter(function(c) {
+      return Math2.distance(c.getAttribute('position'), userPosition) > self.data.distance;
+    }).forEach(function(tile) {
+      self.el.removeChild(tile);
+    });
+
+    neededPositions.forEach(function(p) {
+      var newTile = document.createElement('a-ocean-tile');
+      newTile.setAttribute('position', p.x + ' ' + p.y + ' ' + p.z);
+      newTile.setAttribute('tile-id', p.id);
+      self.el.appendChild(newTile);
+    });
+  }
+})
+
 AFRAME.registerPrimitive('a-ocean-tile', {
   defaultComponents: {
     'ocean-tile': {},
-    rotation: {x: -90, y: 0, z: 0}
+    rotation: {x: -90, y: 0, z:0}
   },
   mappings: {
     width: 'ocean-tile.width',
     depth: 'ocean-tile.depth',
     density: 'ocean-tile.density',
     amplitude: 'ocean-tile.amplitude',
-    amplitudeVariance: 'ocean-tile.amplitudeVariance',
+    'amplitude-variance': 'ocean-tile.amplitude-variance',
     speed: 'ocean-tile.speed',
-    speedVariance: 'ocean-tile.speedVariance',
+    'speed-variance': 'ocean-tile.speed-variance',
     color: 'ocean-tile.color',
     opacity: 'ocean-tile.opacity'
   }
@@ -27,19 +85,19 @@ AFRAME.registerPrimitive('a-ocean-tile', {
 AFRAME.registerComponent('ocean-tile', {
   schema: {
     // Dimensions of the ocean area.
-    width: {default: 10, min: 0},
-    depth: {default: 10, min: 0},
+    width: {default: 5, min: 0},
+    depth: {default: 5, min: 0},
 
     // Density of waves.
     density: {default: 10},
 
     // Wave amplitude and variance.
-    amplitude: {default: 0.1},
-    amplitudeVariance: {default: 0.3},
+    amplitude: {default: 0.05},
+    'amplitude-variance': {default: 0.3},
 
     // Wave speed and variance.
-    speed: {default: 1},
-    speedVariance: {default: 2},
+    speed: {default: 0.5},
+    'speed-variance': {default: 2},
 
     // Material.
     color: {default: '#7AD2F7', type: 'color'},
@@ -65,7 +123,7 @@ AFRAME.registerComponent('ocean-tile', {
         color: data.color,
         transparent: data.opacity < 1,
         opacity: data.opacity,
-        shading: THREE.FlatShading,
+        flatShading: true,
       });
     }
 

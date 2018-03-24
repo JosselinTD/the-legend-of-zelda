@@ -13,6 +13,9 @@
     <script src="colors.js"></script> 
     <script src="three/CustomMeshFlat.js"></script> 
     <script src="three/GeometryHelpers.js"></script> 
+    <script src="three/inflate.min.js"></script> 
+    <script src="three/LoaderUtils.js"></script> 
+    <script src="three/FBXLoader.js"></script> 
     <script src="three/Water.js"></script> 
     <script src="emissive-light.js"></script>
     <script type="text/javascript" src="fire.js"></script>
@@ -24,23 +27,20 @@
     <script type="text/javascript" src="mountain.js"></script>
     <script type="text/javascript" src="tree.js"></script>
     <script type="text/javascript" src="ground.js"></script>
+    <script type="text/javascript" src="ares.js"></script>
+    <script type="text/javascript" src="cthulhu.js"></script>
+    <script type="text/javascript" src="entrance.js"></script>
+    <script type="text/javascript" src="map-item.js"></script>
   </head>
   <body>
   <a-scene antialias="true">
     <a-assets>
-      <a-asset-item id="tree1" src="models/tree1/scene.gltf"></a-asset-item>
-      <a-asset-item id="tree2" src="models/tree2/scene.gltf"></a-asset-item>
-      <a-asset-item id="door1" src="models/door1/mountain-door.gltf"></a-asset-item>
       <a-asset-item id="torch-statue-1" src="models/torch-statue-1/torch-statue.gltf"></a-asset-item>
-      <a-asset-item id="fire1" src="models/fire1/fire1.gltf"></a-asset-item>
-      <a-asset-item id="fire2" src="models/fire2/fire2.gltf"></a-asset-item>
-      <a-asset-item id="mountain1" src="models/mountain1/scene.gltf"></a-asset-item>
-      <a-asset-item id="mountain2" src="models/mountain2/scene.gltf"></a-asset-item>
-      <a-asset-item id="mountain3" src="models/mountain3/scene.gltf"></a-asset-item>
-      <a-asset-item id="mountain4" src="models/mountain4/scene.gltf"></a-asset-item>
-      <a-asset-item id="mountain5" src="models/mountain5/holled-mountains.gltf"></a-asset-item>
+      <a-asset-item id="cthulhu" src="models/cthulu/gltf/cthulhu-low-2.gltf"></a-asset-item>
+      <a-asset-item id="ares" src="models/ares/gltf/ares.gltf"></a-asset-item>
       <a-asset-item id="wiseMan" src="models/peasant-male/peasant-male.gltf"></a-asset-item>
       <a-asset-item id="basicSword" src="models/basic-sword/scene.gltf"></a-asset-item>
+      <a-asset-item id="arch" src="models/arch/scene.gltf"></a-asset-item>
     </a-assets>
 
     <a-gradient-sky material="shader: gradient; topColor: 100 100 255; bottomColor: 255 255 255;"></a-gradient-sky>
@@ -51,10 +51,10 @@
       castShadow: true;
       shadowCameraFar: 1000;
       shadowCameraFov: 180;
-      shadowCameraBottom: -400;
-      shadowCameraLeft: -400;
-      shadowCameraTop: 400;
-      shadowCameraRight: 400" 
+      shadowCameraBottom: -1000;
+      shadowCameraLeft: -1000;
+      shadowCameraTop: 1000;
+      shadowCameraRight: 1000" 
       position="150 350 350" 
       shadow="cast: true; receive: true"></a-entity>
       <a-entity light="type: directional;
@@ -63,12 +63,13 @@
         castShadow: true;
         shadowCameraFar: 1000;
         shadowCameraFov: 180;
-        shadowCameraBottom: -400;
-        shadowCameraLeft: -400;
-        shadowCameraTop: 400;
-        shadowCameraRight: 400" 
+        shadowCameraBottom: -1000;
+        shadowCameraLeft: -1000;
+        shadowCameraTop: 1000;
+        shadowCameraRight: 1000" 
         position="-150 350 350" 
         shadow="cast: true; receive: true"></a-entity>
+    <!--<a-entity light="type: hemisphere; color: white; groundColor: #f4f142; intensity: 0.2"></a-entity>-->
 
     <!--<a-entity joycon-controls
       position="640 1.5 250"
@@ -82,21 +83,16 @@
     <a-entity camera
       look-controls
       wasd-controls
-      position="670 1.7 251"
+      position="589 1.7 415"
       rotation="0 0 0"
+      game-events
       save-position></a-entity>
 
-    <script type="text/javascript" src="doors.js"></script>
-    <script type="text/javascript" src="torchs.js"></script>
-    <script type="text/javascript" src="npcs.js"></script>
-
-    <script type="text/javascript" src="player.js"></script>
-
-    <a-forest distance="40"></a-forest>
+    <a-map-item distance="40"></a-map-item>
     <!--<a-tiled-ocean distance="40" position="0 0 0"></a-tiled-ocean>-->
     <a-ocean-3></a-ocean-3>
     <a-mountain></a-mountain>
-    <a-ground></a-ground>
+    <a-ground shadow="receive: true"></a-ground>
 </a-entity>
   </a-scene>
   </body>

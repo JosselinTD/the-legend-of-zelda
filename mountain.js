@@ -28,7 +28,17 @@ AFRAME.registerComponent('mountain', {
     });
 		var vertices = geometry.vertices;
 		for (var i = 0, l = vertices.length; i < l; i ++) {
-		  vertices[i].z = terrainData[i] * 10;
+      if (terrainData[i] !== 3 && (i === 0 || terrainData[i-1] !== 3) &&
+          terrainData[i] !== -3 && (i === 0 || terrainData[i-1] !== -3)) {
+        vertices[i].z = terrainData[i] * 10;
+      } else { // entrance
+        vertices[i].z = 7;
+        vertices[i].y-=0.5;
+      }
+      if (terrainData[i] === -3 || (i !== 0 && terrainData[i-1] === -3)) {
+        vertices[i].z = -10;
+        vertices[i].y+=1;
+      }
     }
     // Create mesh.
     var mat = new THREE.MeshPhongMaterial({
@@ -36,6 +46,7 @@ AFRAME.registerComponent('mountain', {
       transparent: data.opacity < 1,
       opacity: data.opacity,
       flatShading: true,
+      shininess: 0
     });
     var mesh = new THREE.Mesh(geometry, mat);
     this.el.setObject3D('mesh', mesh);
@@ -58,6 +69,12 @@ function generateHeight(width, height) {
     for (var j = 0; j < currentLine.length; j++) {
       if (currentLine[j].indexOf('mountain') === -1) {
         data[(i * currentLine.length) + j] = -1;
+      }
+      if (currentLine[j].indexOf('entrance') !== -1) {
+        data[(i * currentLine.length) + j] = 3;
+      }
+      if (i !== 0 && map[i-1][j].indexOf('entrance') !== -1) {
+        data[(i * currentLine.length) + j] = -3;
       }
     }
   }

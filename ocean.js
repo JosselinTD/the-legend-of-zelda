@@ -65,9 +65,6 @@ AFRAME.registerComponent('ocean-3', {
     this.vertexToUpdate = geometry.vertices.filter(function(v, index) {
       v.index = index;
       var nice = map[v.y][v.x] === 'water';
-      /*if (!nice) {
-        v.z = -0.5
-      }*/
       return nice;
     });
     this.waves = [];

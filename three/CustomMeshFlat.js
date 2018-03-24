@@ -218,7 +218,7 @@ var CustomMesh = {
   SphereMesh : function(ray,sw,sh,color, center){
     var geom = new THREE.SphereGeometry( ray, sw, sh);
     var mat = new THREE.MeshLambertMaterial({ 
-      color: color,
+      color: color
     });
     if (!center){
       geom.applyMatrix(new THREE.Matrix4().makeTranslation(0,ray,0));
@@ -349,7 +349,9 @@ var CustomMesh = {
     geom.applyMatrix(new THREE.Matrix4().makeRotationX(-Math.PI/2));
 
     var mat = new THREE.MeshLambertMaterial({ 
-      color: color
+      color: color,
+      emissive: color,
+      emissiveIntensity: 0.1
     });
     CustomMesh.flatshadeGeometry(geom);
     var mesh = new THREE.Mesh(geom, mat);

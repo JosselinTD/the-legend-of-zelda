@@ -18,13 +18,11 @@
     <script src="three/FBXLoader.js"></script> 
     <script src="three/Water.js"></script> 
     <script src="emissive-light.js"></script>
-    <script type="text/javascript" src="fire.js"></script>
     <script src="controls.js"></script>
     <script src="spinning.js"></script>
     <script src="game-events.js"></script>
     <script src="ocean.js"></script>
-    <script src="water-material.js"></script>
-    <script type="text/javascript" src="mountain.js"></script>
+    <script type="text/javascript" src="mountain-2.js"></script>
     <script type="text/javascript" src="tree.js"></script>
     <script type="text/javascript" src="ground.js"></script>
     <script type="text/javascript" src="ares.js"></script>
@@ -33,7 +31,7 @@
     <script type="text/javascript" src="map-item.js"></script>
   </head>
   <body>
-  <a-scene antialias="true">
+  <a-scene antialias="true" stats>
     <a-assets>
       <a-asset-item id="torch-statue-1" src="models/torch-statue-1/torch-statue.gltf"></a-asset-item>
       <a-asset-item id="cthulhu" src="models/cthulu/gltf/cthulhu-low-2.gltf"></a-asset-item>
@@ -89,11 +87,9 @@
       save-position></a-entity>
 
     <a-map-item distance="40"></a-map-item>
-    <!--<a-tiled-ocean distance="40" position="0 0 0"></a-tiled-ocean>-->
     <a-ocean-3></a-ocean-3>
-    <a-mountain></a-mountain>
+    <a-mountains></a-mountains>
     <a-ground shadow="receive: true"></a-ground>
-</a-entity>
   </a-scene>
   </body>
 </html>
